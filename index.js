@@ -1,3 +1,14 @@
+const { hash } = window.location;
+
+const decodedMessage = atob(hash.replace("#", ""));
+
+if (decodedMessage) {
+  document.querySelector("#message-form").classList.add("hide");
+  document.querySelector("#message-show").classList.remove("hide");
+
+  document.querySelector("h1").innerHTML = decodedMessage;
+}
+
 document
   .querySelector("form")
   .addEventListener("submit", event => {
